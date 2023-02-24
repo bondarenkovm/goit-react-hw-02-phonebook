@@ -14,8 +14,6 @@ export const Label = styled.label`
 `;
 
 export const Button = styled.button`
-  width: 200px;
-  align-items: center;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 15px;

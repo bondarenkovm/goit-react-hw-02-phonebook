@@ -26,11 +26,12 @@ export const Button = styled.button`
   color: #fff;
   cursor: pointer;
   background-color: red;
-  transition: 300ms;
+  transition: 250ms;
   &:hover {
     scale: 1.05;
   }
   &:active {
     scale: 0.95;
+    background-color: blue;
   }
 `;
