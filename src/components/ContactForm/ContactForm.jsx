@@ -1,54 +1,70 @@
 import { Component } from 'react';
+// import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
+import { Form, Label, Button } from './ContactForm.styled';
 
 class ContactForm extends Component {
   state = {
-    contacts: [],
+    // contacts: [],
     name: '',
     number: '',
   };
 
+  //   nameId = nanoid(10);
+  //   numberId = nanoid(10);
+
   handleChange = evt => {
     const { name, value } = evt.currentTarget;
-    // console.log(evt.currentTarget.value);
     this.setState({ [name]: value });
   };
 
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log(this.state);
+    this.props.formSubmit(this.state);
+    this.reset();
   };
 
+  reset = () => {
+    this.setState({ name: '', number: '' });
+  };
   render() {
+    const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <Form onSubmit={this.handleSubmit}>
+        <Label>
           Name:
           <input
             type="text"
             name="name"
+            // id={this.nameId}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            value={this.state.name}
+            value={name}
             onChange={this.handleChange}
           />
-        </label>
-        <label>
-          Tel.:
+        </Label>
+        <Label>
+          Number:
           <input
             type="tel"
             name="number"
+            // id={this.numberId}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            value={this.state.number}
+            value={number}
             onChange={this.handleChange}
           />
-        </label>
-        <button type="submit">ADD</button>
-      </form>
+        </Label>
+        <Button type="submit">ADD CONTACT</Button>
+      </Form>
     );
   }
 }
 
 export { ContactForm };
+
+ContactForm.propTypes = {
+  formSubmit: PropTypes.func.isRequired,
+};
