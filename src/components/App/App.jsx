@@ -16,26 +16,25 @@ class App extends Component {
     filter: '',
   };
 
-  co;
-
   formSubmitHandler = data => {
-    // console.log(data);
-    const newContact = { ...data };
-    newContact.id = nanoid();
-    this.setState(prevState => {
-      return { contacts: [...prevState.contacts, newContact] };
-    });
+    if (this.state.contacts.find(contact => contact.name === data.name)) {
+      alert(`${data.name} is alreary in contacts`);
+    } else {
+      const newContact = { ...data };
+      newContact.id = nanoid();
+      this.setState(prevState => {
+        return { contacts: [...prevState.contacts, newContact] };
+      });
+    }
   };
 
   deleteContact = id => {
-    // const id = evt.target.id;
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 
   onFilterName = evt => {
-    // console.log(evt.target.value);
     this.setState({ filter: evt.target.value });
   };
 

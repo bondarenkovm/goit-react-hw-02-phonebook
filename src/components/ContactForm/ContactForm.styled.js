@@ -4,6 +4,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-weight: 500;
 `;
 
 export const Label = styled.label`
@@ -14,6 +15,7 @@ export const Label = styled.label`
 `;
 
 export const Button = styled.button`
+  width: 150px;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 15px;
@@ -23,6 +25,8 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: green;
   transition: 300ms;
+  margin-left: auto;
+  margin-right: auto;
   &:hover {
     scale: 1.05;
   }
