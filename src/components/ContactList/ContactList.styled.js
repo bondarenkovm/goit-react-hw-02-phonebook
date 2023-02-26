@@ -15,6 +15,9 @@ export const Item = styled.li`
   align-items: center;
   gap: 15px;
   font-size: 20px;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
 `;
 
 export const Button = styled.button`

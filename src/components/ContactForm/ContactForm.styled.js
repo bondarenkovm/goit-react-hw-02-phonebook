@@ -3,8 +3,11 @@ import styled from '@emotion/styled';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   font-weight: 500;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
 `;
 
 export const Label = styled.label`
@@ -32,5 +35,9 @@ export const Button = styled.button`
   }
   &:active {
     scale: 0.95;
+  }
+  :disabled {
+    background-color: red;
+    color: black;
   }
 `;

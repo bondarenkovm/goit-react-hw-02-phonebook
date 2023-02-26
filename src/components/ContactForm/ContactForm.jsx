@@ -50,7 +50,9 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </Label>
-        <Button type="submit">ADD CONTACT</Button>
+        <Button type="submit" disabled={!name | !number}>
+          ADD CONTACT
+        </Button>
       </Form>
     );
   }
